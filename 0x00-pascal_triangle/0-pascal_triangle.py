@@ -24,7 +24,7 @@
 
         pascal_triangle[i] = new_row
 
-    return pascal_triangle"""
+    return pascal_triangle
 
 def pascal_triangle(n):
     if n <= 0:
@@ -37,4 +37,18 @@ def pascal_triangle(n):
             row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
         triangle.append(row)
 
-    return triangle
+    return triangle"""
+
+
+def pascal_triangle(n):
+    if n <= 0:
+        return []
+    result = []
+    for line in range(1, n + 1):
+        C = 1
+        row = []
+        for i in range(1, line + 1):
+            row.append(C)
+            C = int(C * (line - i) / i)
+        result.append(row)
+    return result
